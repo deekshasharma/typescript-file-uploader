@@ -1,9 +1,15 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import upload from "../images/upload.svg";
 
-export const DragDrop = () => {
-  const showFileChooser = () => {
-    document.getElementById("fileInput")!.click();
+interface DragDropProps {
+  onFileSelect: (file: File | undefined) => void;
+}
+
+export const DragDrop = ({ onFileSelect }: DragDropProps) => {
+  const showFileChooser = () => document.getElementById("fileInput")!.click();
+  const onChangeFileChooser = (e: ChangeEvent<HTMLInputElement>) => {
+    const files: FileList | null = e.target.files;
+    onFileSelect(files === null ? undefined : files[0]);
   };
 
   return (
@@ -11,7 +17,6 @@ export const DragDrop = () => {
       style={{
         display: "flex",
         flexDirection: "column",
-        border: "0px solid red",
         height: "50vh",
         alignItems: "center",
         justifyContent: "center",
@@ -28,7 +33,7 @@ export const DragDrop = () => {
           id="fileInput"
           type="file"
           accept="image/x-png,image/gif,image/jpeg"
-          onChange={() => console.log("hey")}
+          onChange={(e) => onChangeFileChooser(e)}
           style={{ display: "none" }}
         />
       </div>
