@@ -105,8 +105,35 @@ const CallToAction = ({ onClickCancel, onClickUpload }: CallToActionProps) => {
         width: "100%",
       }}
     >
-      <button onClick={onClickCancel}>CANCEL</button>
-      <button onClick={onClickUpload}>UPLOAD</button>
+      <button
+        style={{
+          display: "inline-block",
+          borderRadius: "22px",
+          padding: "0.8rem 0",
+          margin: "0.5rem 1rem",
+          width: "9rem",
+          border: "1px solid black",
+          cursor: "pointer",
+        }}
+        onClick={onClickCancel}
+      >
+        CANCEL
+      </button>
+      <button
+        style={{
+          display: "inline-block",
+          borderRadius: "22px",
+          padding: "0.8rem 0",
+          margin: "0.5rem 1rem",
+          width: "9rem",
+          backgroundColor: "#FACBCF",
+          border: "0.5px solid #FACBCF",
+          cursor: "pointer",
+        }}
+        onClick={onClickUpload}
+      >
+        UPLOAD
+      </button>
     </div>
   );
 };
