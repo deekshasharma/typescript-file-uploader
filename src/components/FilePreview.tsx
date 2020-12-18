@@ -2,9 +2,15 @@ import React, { useState } from "react";
 
 interface FilePreviewProps {
   file: File;
+  onClickCancel: () => void;
+  onClickUpload: () => void;
 }
 
-export const FilePreview = ({ file }: FilePreviewProps) => {
+export const FilePreview = ({
+  file,
+  onClickCancel,
+  onClickUpload,
+}: FilePreviewProps) => {
   const [fileBlob, setFileBlob] = useState<string>("");
 
   let fileReader = new FileReader();
@@ -25,7 +31,10 @@ export const FilePreview = ({ file }: FilePreviewProps) => {
     >
       <Preview fileBlob={fileBlob} />
       <CompressionRate />
-      <CallToAction />
+      <CallToAction
+        onClickCancel={onClickCancel}
+        onClickUpload={onClickUpload}
+      />
     </div>
   );
 };
@@ -55,18 +64,22 @@ const CompressionRate = () => {
   );
 };
 
-const CallToAction = () => {
+interface CallToActionProps {
+  onClickCancel: () => void;
+  onClickUpload: () => void;
+}
+
+const CallToAction = ({ onClickCancel, onClickUpload }: CallToActionProps) => {
   return (
     <div
       style={{
         display: "flex",
         justifyContent: "space-around",
-        border: "0px solid red",
         width: "100%",
       }}
     >
-      <button>CANCEL</button>
-      <button>UPLOAD</button>
+      <button onClick={onClickCancel}>CANCEL</button>
+      <button onClick={onClickUpload}>UPLOAD</button>
     </div>
   );
 };

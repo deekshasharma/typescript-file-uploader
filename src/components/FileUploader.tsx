@@ -8,10 +8,18 @@ export const FileUploader = () => {
   );
 
   const onFileSelect = (file: File | undefined) => setUserSelectedFile(file);
+  const onClickCancel = () => setUserSelectedFile(undefined);
+  const onClickUpload = () => console.log("Upload clicked");
 
   return (
     <>
-      {userSelectedFile && <FilePreview file={userSelectedFile} />}
+      {userSelectedFile && (
+        <FilePreview
+          file={userSelectedFile}
+          onClickCancel={onClickCancel}
+          onClickUpload={onClickUpload}
+        />
+      )}
       {!userSelectedFile && <DragDrop onFileSelect={onFileSelect} />}
     </>
   );
