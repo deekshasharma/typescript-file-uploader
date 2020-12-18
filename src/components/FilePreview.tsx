@@ -2,12 +2,16 @@ import React, { useState } from "react";
 
 interface FilePreviewProps {
   file: File;
+  compressionRate: number;
+  onChangeCompressionRate: (rate: number) => void;
   onClickCancel: () => void;
   onClickUpload: () => void;
 }
 
 export const FilePreview = ({
   file,
+  compressionRate,
+  onChangeCompressionRate,
   onClickCancel,
   onClickUpload,
 }: FilePreviewProps) => {
@@ -22,7 +26,7 @@ export const FilePreview = ({
       style={{
         display: "flex",
         flexDirection: "column",
-        height: "50vh",
+        height: "70vh",
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "#C2E5E1",
@@ -30,7 +34,10 @@ export const FilePreview = ({
       }}
     >
       <Preview fileBlob={fileBlob} />
-      <CompressionRate />
+      <CompressionRate
+        compressionRate={compressionRate}
+        onChangeCompressionRate={onChangeCompressionRate}
+      />
       <CallToAction
         onClickCancel={onClickCancel}
         onClickUpload={onClickUpload}
@@ -55,11 +62,31 @@ const Preview = ({ fileBlob }: PreviewProps) => {
   );
 };
 
-const CompressionRate = () => {
+interface CompressionRateProps {
+  compressionRate: number;
+  onChangeCompressionRate: (rate: number) => void;
+}
+
+const CompressionRate = ({
+  compressionRate,
+  onChangeCompressionRate,
+}: CompressionRateProps) => {
   return (
     <>
       <p>Compression Rate</p>
-      <div>Slider</div>
+      <div className="compressionSlider">
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={compressionRate}
+          className="slider"
+          onChange={(e) => onChangeCompressionRate(parseInt(e.target.value))}
+        />
+        <p>
+          <span>{compressionRate}%</span>
+        </p>
+      </div>
     </>
   );
 };
