@@ -10,6 +10,8 @@ export const DragDrop = () => {
         border: "0px solid red",
         height: "50vh",
         alignItems: "center",
+        backgroundColor: "#C2E5E1",
+        width: "50vw",
       }}
     >
       <h4>Drag and drop your file or click to select</h4>
