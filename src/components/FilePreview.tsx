@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./FilePreviewStyles.css";
 
 interface FilePreviewProps {
   file: File;
@@ -26,9 +27,6 @@ export const FilePreview = ({
       style={{
         display: "flex",
         flexDirection: "column",
-        height: "70vh",
-        alignItems: "center",
-        justifyContent: "center",
         backgroundColor: "#C2E5E1",
         width: "50vw",
       }}
@@ -51,14 +49,14 @@ interface PreviewProps {
 }
 const Preview = ({ fileBlob }: PreviewProps) => {
   return (
-    <>
-      <p>Preview</p>
-      <div style={{ height: "20vh" }}>
+    <div style={{ margin: "25px 0" }}>
+      <p style={{ fontWeight: "bold", marginBottom: "5vh" }}>Preview</p>
+      <div style={{ height: "30vh" }}>
         {fileBlob && (
-          <img src={fileBlob} alt="upload-file" style={{ height: "20vh" }} />
+          <img src={fileBlob} alt="upload-file" style={{ height: "30vh" }} />
         )}
       </div>
-    </>
+    </div>
   );
 };
 
@@ -72,8 +70,10 @@ const CompressionRate = ({
   onChangeCompressionRate,
 }: CompressionRateProps) => {
   return (
-    <>
-      <p>Compression Rate</p>
+    <div>
+      <p style={{ fontWeight: "bold", marginBottom: "5vh" }}>
+        Compression Rate
+      </p>
       <div className="compressionSlider">
         <input
           type="range"
@@ -84,10 +84,10 @@ const CompressionRate = ({
           onChange={(e) => onChangeCompressionRate(parseInt(e.target.value))}
         />
         <p>
-          <span>{compressionRate}%</span>
+          <span style={{ fontWeight: "bold" }}>{compressionRate}%</span>
         </p>
       </div>
-    </>
+    </div>
   );
 };
 
@@ -103,6 +103,7 @@ const CallToAction = ({ onClickCancel, onClickUpload }: CallToActionProps) => {
         display: "flex",
         justifyContent: "space-around",
         width: "100%",
+        margin: "25px 0",
       }}
     >
       <button
@@ -114,6 +115,7 @@ const CallToAction = ({ onClickCancel, onClickUpload }: CallToActionProps) => {
           width: "9rem",
           border: "1px solid black",
           cursor: "pointer",
+          fontWeight: "bold",
         }}
         onClick={onClickCancel}
       >
@@ -129,6 +131,7 @@ const CallToAction = ({ onClickCancel, onClickUpload }: CallToActionProps) => {
           backgroundColor: "#FACBCF",
           border: "0.5px solid #FACBCF",
           cursor: "pointer",
+          fontWeight: "bold",
         }}
         onClick={onClickUpload}
       >
