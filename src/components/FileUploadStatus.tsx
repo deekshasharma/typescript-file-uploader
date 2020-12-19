@@ -29,10 +29,22 @@ export const FileUploadStatus = ({
         justifyContent: "center",
       }}
     >
+      <Uploading uploaded={uploaded} />
+    </div>
+  );
+};
+
+interface UploadingProps {
+  uploaded: number;
+}
+
+const Uploading = ({ uploaded }: UploadingProps) => {
+  return (
+    <>
       <p style={{ fontWeight: "bold", marginBottom: "5vh" }}>UPLOADING</p>
       <div>
         <progress max="100" value={uploaded}></progress>
       </div>
-    </div>
+    </>
   );
 };
