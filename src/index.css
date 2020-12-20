@@ -14,3 +14,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --surface: #C2E5E1;
+  --primary: #FACBCF;
+  --secondary: #ffffff;
+  --text-primary: #4D525B;
+  --text-secondary: #00000;
+}
+
+p {
+  color: var(--text-primary)
+}

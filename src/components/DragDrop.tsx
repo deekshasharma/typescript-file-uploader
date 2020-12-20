@@ -1,5 +1,6 @@
 import React, { ChangeEvent } from "react";
 import upload from "../images/upload.svg";
+import styles from "./DragDrop.module.css";
 
 interface DragDropProps {
   onFileSelect: (file: File | undefined) => void;
@@ -13,24 +14,10 @@ export const DragDrop = ({ onFileSelect }: DragDropProps) => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        height: "50vh",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#C2E5E1",
-        width: "50vw",
-        cursor: "pointer",
-      }}
-      onClick={showFileChooser}
-    >
-      <p style={{ color: "#4C505B" }}>
-        Drag and drop your file or click to select
-      </p>
+    <div className={styles.uploaderBackground} onClick={showFileChooser}>
+      <p>Drag and drop your file or click to select</p>
       <div>
-        <img src={upload} alt="upload-file" style={{ height: "10vh" }} />
+        <img src={upload} alt="upload-file" className={styles.uploadImg} />
         <input
           id="fileInput"
           type="file"
