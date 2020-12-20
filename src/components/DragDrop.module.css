@@ -1,4 +1,4 @@
-.uploaderBackground {
+.uploaderBg {
     display: flex;
     flex-direction: column;
     height: 50vh;
@@ -7,7 +7,16 @@
     background-color: var(--surface);
     width: 50vw;
     cursor: pointer;
+    border: none
 }
+
+.uploaderBgHighlight{
+    composes: uploaderBg;
+    border: 10px solid var(--text-primary)
+}
+
+
+
 
 .uploadImg {
    height: 10vh;
