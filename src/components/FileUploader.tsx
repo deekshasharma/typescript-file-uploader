@@ -14,11 +14,18 @@ export const FileUploader = () => {
   const onClickCancel = () => setUserSelectedFile(undefined);
   const onClickUpload = () => setConfirmFileUpload(true);
   const onChangeCompressionRate = (rate: number) => setCompressionRate(rate);
+  const onClickUploadFile = () => {
+    setUserSelectedFile(undefined);
+    setConfirmFileUpload(false);
+  };
 
   return (
     <>
       {userSelectedFile && confirmFileUpload && (
-        <FileUploadStatus compressionRate={compressionRate} />
+        <FileUploadStatus
+          onClickUploadFile={onClickUploadFile}
+          compressionRate={compressionRate}
+        />
       )}
       {userSelectedFile && !confirmFileUpload && (
         <FilePreview

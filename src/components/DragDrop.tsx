@@ -26,7 +26,9 @@ export const DragDrop = ({ onFileSelect }: DragDropProps) => {
       }}
       onClick={showFileChooser}
     >
-      <p>Drag and drop your file or click to select</p>
+      <p style={{ color: "#4C505B" }}>
+        Drag and drop your file or click to select
+      </p>
       <div>
         <img src={upload} alt="upload-file" style={{ height: "10vh" }} />
         <input

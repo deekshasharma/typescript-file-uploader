@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./FileUploadStatusStyles.css";
+import uploadOk from "../images/upload-ok.svg";
 
 interface FileUploadStatusProps {
   compressionRate: number;
+  onClickUploadFile: () => void;
 }
 export const FileUploadStatus = ({
-  compressionRate,
+  compressionRate, // CompressionRate to be sent to backend
+  onClickUploadFile,
 }: FileUploadStatusProps) => {
   const [uploaded, setUploaded] = useState<number>(0);
 
   useEffect(() => {
     const id = setInterval(() => {
       if (uploaded < 100) {
-        setUploaded(uploaded + 6);
+        setUploaded(uploaded + 5);
       } else clearInterval(id);
     }, 50);
     return () => clearInterval(id);
@@ -29,7 +32,10 @@ export const FileUploadStatus = ({
         justifyContent: "center",
       }}
     >
-      <Uploading uploaded={uploaded} />
+      {uploaded < 100 && <Uploading uploaded={uploaded} />}
+      {uploaded >= 100 && (
+        <UploadComplete onClickUploadFile={onClickUploadFile} />
+      )}
     </div>
   );
 };
@@ -41,10 +47,61 @@ interface UploadingProps {
 const Uploading = ({ uploaded }: UploadingProps) => {
   return (
     <>
-      <p style={{ fontWeight: "bold", marginBottom: "5vh" }}>UPLOADING</p>
+      <p style={{ fontWeight: "bold", marginBottom: "5vh", color: "#4C505B" }}>
+        UPLOADING
+      </p>
       <div>
-        <progress max="100" value={uploaded}></progress>
+        <progress max="100" value={uploaded} />
       </div>
     </>
+  );
+};
+
+interface UploadCompleteProps {
+  onClickUploadFile: () => void;
+}
+const UploadComplete = ({ onClickUploadFile }: UploadCompleteProps) => {
+  return (
+    <div>
+      <p
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontWeight: "bold",
+          color: "#4C505B",
+        }}
+      >
+        Uploaded
+        <span>
+          <img
+            src={uploadOk}
+            alt={"uploaded-ok"}
+            style={{
+              marginLeft: "1vw",
+              height: "5vh",
+            }}
+          />
+        </span>
+      </p>
+      <div>
+        <button
+          style={{
+            marginTop: "5vh",
+            textDecoration: "underline",
+            background: "none !important",
+            border: "none",
+            padding: "0 !important",
+            backgroundColor: "transparent",
+            fontWeight: "bold",
+            color: "#4C505B",
+            cursor: "pointer",
+          }}
+          onClick={onClickUploadFile}
+        >
+          Upload another file
+        </button>
+      </div>
+    </div>
   );
 };

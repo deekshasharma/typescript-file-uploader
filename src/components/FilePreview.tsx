@@ -50,7 +50,9 @@ interface PreviewProps {
 const Preview = ({ fileBlob }: PreviewProps) => {
   return (
     <div style={{ margin: "25px 0" }}>
-      <p style={{ fontWeight: "bold", marginBottom: "5vh" }}>Preview</p>
+      <p style={{ fontWeight: "bold", marginBottom: "5vh", color: "#4C505B" }}>
+        Preview
+      </p>
       <div style={{ height: "30vh" }}>
         {fileBlob && (
           <img src={fileBlob} alt="upload-file" style={{ height: "30vh" }} />
@@ -71,7 +73,7 @@ const CompressionRate = ({
 }: CompressionRateProps) => {
   return (
     <div>
-      <p style={{ fontWeight: "bold", marginBottom: "5vh" }}>
+      <p style={{ fontWeight: "bold", marginBottom: "5vh", color: "#4C505B" }}>
         Compression Rate
       </p>
       <div className="compressionSlider">
@@ -84,7 +86,9 @@ const CompressionRate = ({
           onChange={(e) => onChangeCompressionRate(parseInt(e.target.value))}
         />
         <p>
-          <span style={{ fontWeight: "bold" }}>{compressionRate}%</span>
+          <span style={{ fontWeight: "bold", color: "#4C505B" }}>
+            {compressionRate}%
+          </span>
         </p>
       </div>
     </div>
