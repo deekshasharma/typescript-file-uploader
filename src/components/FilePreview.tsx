@@ -31,7 +31,7 @@ export const FilePreview = ({
         width: "50vw",
       }}
     >
-      <Preview fileBlob={fileBlob} />
+      <Preview fileBlob={fileBlob} fileType={file.type} />
       <CompressionRate
         compressionRate={compressionRate}
         onChangeCompressionRate={onChangeCompressionRate}
@@ -46,8 +46,9 @@ export const FilePreview = ({
 
 interface PreviewProps {
   fileBlob: string;
+  fileType: string;
 }
-const Preview = ({ fileBlob }: PreviewProps) => {
+const Preview = ({ fileBlob, fileType }: PreviewProps) => {
   return (
     <div style={{ margin: "25px 0" }}>
       <p style={{ fontWeight: "bold", marginBottom: "5vh", color: "#4C505B" }}>
@@ -55,7 +56,7 @@ const Preview = ({ fileBlob }: PreviewProps) => {
       </p>
       <div style={{ height: "30vh" }}>
         {fileBlob && (
-          <img src={fileBlob} alt="upload-file" style={{ height: "30vh" }} />
+          <embed src={fileBlob} type={fileType} style={{ height: "30vh" }} />
         )}
       </div>
     </div>

@@ -53,7 +53,6 @@ export const DragDrop = ({ onFileSelect }: DragDropProps) => {
         <input
           id="fileInput"
           type="file"
-          accept="image/x-png,image/gif,image/jpeg"
           onChange={(e) => onChangeFileChooser(e)}
           style={{ display: "none" }}
         />
