@@ -13,8 +13,25 @@ export const DragDrop = ({ onFileSelect }: DragDropProps) => {
     onFileSelect(files === null ? undefined : files[0]);
   };
 
+  const preventDefaultBehaviour = (event: React.DragEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    event.preventDefault();
+  };
+
+  const onDropFile = (event: React.DragEvent<HTMLDivElement>) => {
+    preventDefaultBehaviour(event);
+    const files: FileList = event.dataTransfer.files;
+    onFileSelect(files[0]);
+  };
+
   return (
-    <div className={styles.uploaderBackground} onClick={showFileChooser}>
+    <div
+      className={styles.uploaderBackground}
+      onClick={showFileChooser}
+      onDragEnter={(e) => preventDefaultBehaviour(e)}
+      onDragOver={(e) => preventDefaultBehaviour(e)}
+      onDrop={(e) => onDropFile(e)}
+    >
       <p>Drag and drop your file or click to select</p>
       <div>
         <img src={upload} alt="upload-file" className={styles.uploadImg} />
