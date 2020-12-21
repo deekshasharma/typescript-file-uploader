@@ -1,17 +1,11 @@
-.uploaderBg {
-    display: flex;
-    flex-direction: column;
+.dragDropBg {
+    composes: fileUploaderBg from "../index.css";
     height: 50vh;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--surface);
-    width: 50vw;
     cursor: pointer;
-    border: none
 }
 
 .uploaderBgHighlight{
-    composes: uploaderBg;
+    composes: dragDropBg;
     border: 10px solid var(--text-primary)
 }
 

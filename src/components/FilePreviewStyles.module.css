@@ -1,8 +1,5 @@
 .previewBg {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--surface);
-    width: 50vw;
+    composes: fileUploaderBg from "../index.css";
 }
 
 .preview {

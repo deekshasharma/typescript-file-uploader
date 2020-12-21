@@ -39,7 +39,7 @@ export const DragDropUpload = ({ onFileSelect }: DragDropProps) => {
   return (
     <div
       className={
-        highlightDropZone ? styles.uploaderBgHighlight : styles.uploaderBg
+        highlightDropZone ? styles.uploaderBgHighlight : styles.dragDropBg
       }
       onClick={showFileChooser}
       onDragEnter={(e) => onDragEnterAndOver(e)}

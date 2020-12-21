@@ -31,3 +31,12 @@ p, button {
   font-weight: bold;
   margin-bottom: 5vh;
 }
+
+.fileUploaderBg {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  justify-content: center;
+  background-color: var(--surface);
+  width: 50vw;
+}
