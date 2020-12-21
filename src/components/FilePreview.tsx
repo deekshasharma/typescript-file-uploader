@@ -3,18 +3,32 @@ import styles from "./FilePreviewStyles.module.css";
 
 interface FilePreviewProps {
   file: File;
+  previewTextLabel: string;
+  showCompressionRate: boolean;
+  compressionTextLabel: string;
+  compressionStartValue: string;
+  compressionEndValue: string;
   compressionRate: number;
   onChangeCompressionRate: (rate: number) => void;
-  onClickCancel: () => void;
-  onClickUpload: () => void;
+  cancelLabel: string;
+  uploadLabel: string;
+  onCancel: () => void;
+  onUpload: () => void;
 }
 
 export const FilePreview = ({
   file,
+  previewTextLabel,
+  showCompressionRate,
+  compressionTextLabel,
+  compressionStartValue,
+  compressionEndValue,
+  cancelLabel,
+  uploadLabel,
   compressionRate,
   onChangeCompressionRate,
-  onClickCancel,
-  onClickUpload,
+  onCancel,
+  onUpload,
 }: FilePreviewProps) => {
   const [fileBlob, setFileBlob] = useState<string>("");
 
@@ -24,27 +38,39 @@ export const FilePreview = ({
 
   return (
     <div className={styles.previewBg}>
-      <Preview fileBlob={fileBlob} fileType={file.type} />
-      <CompressionRate
-        compressionRate={compressionRate}
-        onChangeCompressionRate={onChangeCompressionRate}
+      <Preview
+        previewTextLabel={previewTextLabel}
+        fileBlob={fileBlob}
+        fileType={file.type}
       />
+      {showCompressionRate && (
+        <CompressionRate
+          compressionTextLabel={compressionTextLabel}
+          compressionStartValue={compressionStartValue}
+          compressionEndValue={compressionEndValue}
+          compressionRate={compressionRate}
+          onChangeCompressionRate={onChangeCompressionRate}
+        />
+      )}
       <CallToAction
-        onClickCancel={onClickCancel}
-        onClickUpload={onClickUpload}
+        cancelLabel={cancelLabel}
+        uploadLabel={uploadLabel}
+        onClickCancel={onCancel}
+        onClickUpload={onUpload}
       />
     </div>
   );
 };
 
 interface PreviewProps {
+  previewTextLabel: string;
   fileBlob: string;
   fileType: string;
 }
-const Preview = ({ fileBlob, fileType }: PreviewProps) => {
+const Preview = ({ previewTextLabel, fileBlob, fileType }: PreviewProps) => {
   return (
     <div className={styles.preview}>
-      <p className={styles.previewText}>Preview</p>
+      <p className={styles.previewText}>{previewTextLabel}</p>
       <div className={styles.previewImg}>
         {fileBlob && (
           <embed src={fileBlob} type={fileType} className={styles.previewImg} />
@@ -55,22 +81,28 @@ const Preview = ({ fileBlob, fileType }: PreviewProps) => {
 };
 
 interface CompressionRateProps {
+  compressionTextLabel: string;
+  compressionStartValue: string;
+  compressionEndValue: string;
   compressionRate: number;
   onChangeCompressionRate: (rate: number) => void;
 }
 
 const CompressionRate = ({
+  compressionTextLabel,
+  compressionStartValue,
+  compressionEndValue,
   compressionRate,
   onChangeCompressionRate,
 }: CompressionRateProps) => {
   return (
     <div>
-      <p className={styles.previewText}>Compression Rate</p>
+      <p className={styles.previewText}>{compressionTextLabel}</p>
       <div className={styles.compressionSlider}>
         <input
           type="range"
-          min="0"
-          max="100"
+          min={compressionStartValue}
+          max={compressionEndValue}
           value={compressionRate}
           className={styles.slider}
           onChange={(e) => onChangeCompressionRate(parseInt(e.target.value))}
@@ -82,18 +114,25 @@ const CompressionRate = ({
 };
 
 interface CallToActionProps {
+  cancelLabel: string;
+  uploadLabel: string;
   onClickCancel: () => void;
   onClickUpload: () => void;
 }
 
-const CallToAction = ({ onClickCancel, onClickUpload }: CallToActionProps) => {
+const CallToAction = ({
+  cancelLabel,
+  uploadLabel,
+  onClickCancel,
+  onClickUpload,
+}: CallToActionProps) => {
   return (
     <div className={styles.ctaBg}>
       <button onClick={onClickCancel} className={styles.cancel}>
-        CANCEL
+        {cancelLabel}
       </button>
       <button onClick={onClickUpload} className={styles.upload}>
-        UPLOAD
+        {uploadLabel}
       </button>
     </div>
   );

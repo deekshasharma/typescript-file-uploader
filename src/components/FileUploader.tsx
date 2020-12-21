@@ -7,11 +7,27 @@ import uploadImg from "../images/upload.svg";
 interface FileUploaderProps {
   dragDropText?: string;
   dragDropImage?: string;
+  previewTextLabel?: string;
+  showCompressionRate?: boolean;
+  compressionTextLabel?: string;
+  compressionStartValue?: string;
+  compressionEndValue?: string;
+  cancelLabel?: string;
+  uploadLabel?: string;
+  // onCancel?: () => void;
+  // onUpload?: () => void;
 }
 
 export const FileUploader = ({
   dragDropText,
   dragDropImage,
+  previewTextLabel,
+  showCompressionRate,
+  compressionTextLabel,
+  compressionStartValue,
+  compressionEndValue,
+  cancelLabel,
+  uploadLabel,
 }: FileUploaderProps) => {
   const [userSelectedFile, setUserSelectedFile] = useState<File | undefined>(
     undefined
@@ -43,10 +59,17 @@ export const FileUploader = ({
       {userSelectedFile && !confirmFileUpload && (
         <FilePreview
           file={userSelectedFile}
+          previewTextLabel={previewTextLabel || "Preview"}
+          showCompressionRate={showCompressionRate || true}
+          compressionTextLabel={compressionTextLabel || "Compression Rate"}
+          compressionStartValue={compressionStartValue || "0"}
+          compressionEndValue={compressionEndValue || "100"}
+          cancelLabel={cancelLabel || "CANCEL"}
+          uploadLabel={uploadLabel || "UPLOAD"}
           compressionRate={compressionRate}
           onChangeCompressionRate={onChangeCompressionRate}
-          onClickCancel={onClickCancel}
-          onClickUpload={onClickUpload}
+          onCancel={onClickCancel}
+          onUpload={onClickUpload}
         />
       )}
       {!userSelectedFile && (
