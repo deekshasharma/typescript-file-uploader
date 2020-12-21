@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./FilePreviewStyles.css";
+import styles from "./FilePreviewStyles.module.css";
 
 interface FilePreviewProps {
   file: File;
@@ -23,14 +23,7 @@ export const FilePreview = ({
   fileReader.readAsDataURL(file);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: "#C2E5E1",
-        width: "50vw",
-      }}
-    >
+    <div className={styles.previewBg}>
       <Preview fileBlob={fileBlob} fileType={file.type} />
       <CompressionRate
         compressionRate={compressionRate}
@@ -50,13 +43,11 @@ interface PreviewProps {
 }
 const Preview = ({ fileBlob, fileType }: PreviewProps) => {
   return (
-    <div style={{ margin: "25px 0" }}>
-      <p style={{ fontWeight: "bold", marginBottom: "5vh", color: "#4C505B" }}>
-        Preview
-      </p>
-      <div style={{ height: "30vh" }}>
+    <div className={styles.preview}>
+      <p className={styles.previewText}>Preview</p>
+      <div className={styles.previewImg}>
         {fileBlob && (
-          <embed src={fileBlob} type={fileType} style={{ height: "30vh" }} />
+          <embed src={fileBlob} type={fileType} className={styles.previewImg} />
         )}
       </div>
     </div>
@@ -74,23 +65,17 @@ const CompressionRate = ({
 }: CompressionRateProps) => {
   return (
     <div>
-      <p style={{ fontWeight: "bold", marginBottom: "5vh", color: "#4C505B" }}>
-        Compression Rate
-      </p>
-      <div className="compressionSlider">
+      <p className={styles.previewText}>Compression Rate</p>
+      <div className={styles.compressionSlider}>
         <input
           type="range"
           min="0"
           max="100"
           value={compressionRate}
-          className="slider"
+          className={styles.slider}
           onChange={(e) => onChangeCompressionRate(parseInt(e.target.value))}
         />
-        <p>
-          <span style={{ fontWeight: "bold", color: "#4C505B" }}>
-            {compressionRate}%
-          </span>
-        </p>
+        <p className={styles.compressionRate}>{compressionRate}%</p>
       </div>
     </div>
   );
