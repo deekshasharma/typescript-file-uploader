@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import { DragDropUpload } from "./DragDropUpload";
 import { FilePreview } from "./FilePreview";
 import { FileUploadStatus } from "./FileUploadStatus";
-import dragDropImage from "../images/upload.svg";
+import uploadImg from "../images/upload.svg";
 
-const dragDropText: string = "Drag and drop your file or click to select";
+interface FileUploaderProps {
+  dragDropText?: string;
+  dragDropImage?: string;
+}
 
-export const FileUploader = () => {
+export const FileUploader = ({
+  dragDropText,
+  dragDropImage,
+}: FileUploaderProps) => {
   const [userSelectedFile, setUserSelectedFile] = useState<File | undefined>(
     undefined
   );
@@ -46,8 +52,10 @@ export const FileUploader = () => {
       {!userSelectedFile && (
         <DragDropUpload
           onFileSelect={onFileSelect}
-          dragDropText={dragDropText}
-          dragDropImage={dragDropImage}
+          dragDropText={
+            dragDropText || "Drag and drop your file or click to select"
+          }
+          dragDropImage={dragDropImage || uploadImg}
         />
       )}
     </>
