@@ -88,43 +88,11 @@ interface CallToActionProps {
 
 const CallToAction = ({ onClickCancel, onClickUpload }: CallToActionProps) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-around",
-        width: "100%",
-        margin: "25px 0",
-      }}
-    >
-      <button
-        style={{
-          display: "inline-block",
-          borderRadius: "22px",
-          padding: "0.8rem 0",
-          margin: "0.5rem 1rem",
-          width: "9rem",
-          border: "1px solid black",
-          cursor: "pointer",
-          fontWeight: "bold",
-        }}
-        onClick={onClickCancel}
-      >
+    <div className={styles.ctaBg}>
+      <button onClick={onClickCancel} className={styles.cancel}>
         CANCEL
       </button>
-      <button
-        style={{
-          display: "inline-block",
-          borderRadius: "22px",
-          padding: "0.8rem 0",
-          margin: "0.5rem 1rem",
-          width: "9rem",
-          backgroundColor: "#FACBCF",
-          border: "0.5px solid #FACBCF",
-          cursor: "pointer",
-          fontWeight: "bold",
-        }}
-        onClick={onClickUpload}
-      >
+      <button onClick={onClickUpload} className={styles.upload}>
         UPLOAD
       </button>
     </div>
