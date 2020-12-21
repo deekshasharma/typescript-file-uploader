@@ -1,50 +1,47 @@
 .uploadStatusBg {
-    composes: fileUploaderBg from "../index.css";
-    height: 50vh;
+  composes: fileUploaderBg from "../index.css";
+  width: 50vw;
 }
 
 .progressBar {
-    width: 70%;
-    border-radius: 10px;
+  width: 100%;
+  border-radius: 10px;
 }
 .progressBar::-webkit-progress-bar {
-    background-color: #c4c4c4;
-    width: 100%;
-    border-radius: 10px
+  background-color: #c4c4c4;
+  width: 100%;
+  border-radius: 10px;
 }
 
 .progressBar::-webkit-progress-value {
-    background-color: #4D525B !important;
-    border-radius: 10px
+  background-color: #4d525b !important;
+  border-radius: 10px;
 }
 
 .uploadingText {
-    composes: boldText from "../index.css"
+  composes: boldText from "../index.css";
 }
 
 .uploadedContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
 .uploadSvg {
-    margin-left: 1vw;
-    height: 5vh;
+  margin-left: 1vw;
+  height: 5vh;
 }
 
 .anotherFileLink {
-    margin-top: 5vh;
-    text-decoration: underline;
-    background: none !important;
-    border: none;
-    padding: 0 0;
-    background-color: transparent;
-    font-weight: bold;
-    color: var(--text-primary);
-    cursor: pointer;
-
+  margin-top: 5vh;
+  text-decoration: underline;
+  background: none !important;
+  border: none;
+  padding: 0 0;
+  background-color: transparent;
+  font-weight: bold;
+  color: var(--text-primary);
+  cursor: pointer;
 }
-
-

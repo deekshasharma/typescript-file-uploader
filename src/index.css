@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -11,20 +11,21 @@ body > #root > div {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 :root {
-  --surface: #C2E5E1;
-  --primary: #FACBCF;
+  --surface: #c2e5e1;
+  --primary: #facbcf;
   --secondary: #ffffff;
-  --text-primary: #4D525B;
+  --text-primary: #4d525b;
   --text-secondary: #00000;
 }
 
-p, button {
-  color: var(--text-primary)
+p,
+button {
+  color: var(--text-primary);
 }
 
 .boldText {
@@ -37,6 +38,4 @@ p, button {
   flex-direction: column;
   border: none;
   justify-content: center;
-  background-color: var(--surface);
-  width: 50vw;
 }

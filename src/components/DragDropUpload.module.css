@@ -1,18 +1,18 @@
 .dragDropBg {
-    composes: fileUploaderBg from "../index.css";
-    height: 50vh;
-    cursor: pointer;
+  composes: fileUploaderBg from "../index.css";
+  cursor: pointer;
 }
 
-.uploaderBgHighlight{
-    composes: dragDropBg;
-    border: 10px solid var(--text-primary)
+.uploaderBgHighlight {
+  composes: dragDropBg;
+  padding: 100px 100px;
+  border: 10px solid var(--text-primary);
 }
 
 .uploadImg {
-   height: 10vh;
+  height: 10vh;
 }
 
 .uploadInput {
-   display: none;
+  display: none;
 }
