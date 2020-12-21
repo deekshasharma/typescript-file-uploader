@@ -54,7 +54,6 @@ export const DragDrop = ({ onFileSelect }: DragDropProps) => {
           id="fileInput"
           type="file"
           onChange={(e) => onChangeFileChooser(e)}
-          style={{ display: "none" }}
         />
       </div>
     </div>

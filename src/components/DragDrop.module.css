@@ -18,3 +18,7 @@
 .uploadImg {
    height: 10vh;
 }
+
+input {
+   display: none;
+}
