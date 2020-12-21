@@ -54,6 +54,7 @@ export const DragDrop = ({ onFileSelect }: DragDropProps) => {
           id="fileInput"
           type="file"
           onChange={(e) => onChangeFileChooser(e)}
+          className={styles.uploadInput}
         />
       </div>
     </div>
