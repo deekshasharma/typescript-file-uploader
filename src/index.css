@@ -23,6 +23,11 @@ code {
   --text-secondary: #00000;
 }
 
-p {
+p, button {
   color: var(--text-primary)
+}
+
+.boldText {
+  font-weight: bold;
+  margin-bottom: 5vh;
 }

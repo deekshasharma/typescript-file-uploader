@@ -14,8 +14,7 @@
 }
 
 .previewText {
-    font-weight: bold;
-    margin-bottom: 5vh;
+    composes: boldText from "../index.css"
 }
 
 .compressionSlider {

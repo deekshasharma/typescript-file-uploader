@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./FileUploadStatusStyles.css";
+import styles from "./FileUploadStatusStyles.module.css";
 import uploadOk from "../images/upload-ok.svg";
 
 interface FileUploadStatusProps {
@@ -22,16 +22,7 @@ export const FileUploadStatus = ({
   });
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: "#C2E5E1",
-        width: "50vw",
-        height: "50vh",
-        justifyContent: "center",
-      }}
-    >
+    <div className={styles.uploadStatusBg}>
       {uploaded < 100 && <Uploading uploaded={uploaded} />}
       {uploaded >= 100 && (
         <UploadComplete onClickUploadFile={onClickUploadFile} />
@@ -47,11 +38,9 @@ interface UploadingProps {
 const Uploading = ({ uploaded }: UploadingProps) => {
   return (
     <>
-      <p style={{ fontWeight: "bold", marginBottom: "5vh", color: "#4C505B" }}>
-        UPLOADING
-      </p>
+      <p className={styles.uploadingText}>UPLOADING</p>
       <div>
-        <progress max="100" value={uploaded} />
+        <progress max="100" value={uploaded} className={styles.progressBar} />
       </div>
     </>
   );
@@ -62,46 +51,22 @@ interface UploadCompleteProps {
 }
 const UploadComplete = ({ onClickUploadFile }: UploadCompleteProps) => {
   return (
-    <div>
-      <p
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontWeight: "bold",
-          color: "#4C505B",
-        }}
-      >
+    <>
+      <p className={styles.uploadedContainer}>
         Uploaded
         <span>
           <img
             src={uploadOk}
             alt={"uploaded-ok"}
-            style={{
-              marginLeft: "1vw",
-              height: "5vh",
-            }}
+            className={styles.uploadSvg}
           />
         </span>
       </p>
       <div>
-        <button
-          style={{
-            marginTop: "5vh",
-            textDecoration: "underline",
-            background: "none !important",
-            border: "none",
-            padding: "0 !important",
-            backgroundColor: "transparent",
-            fontWeight: "bold",
-            color: "#4C505B",
-            cursor: "pointer",
-          }}
-          onClick={onClickUploadFile}
-        >
+        <button onClick={onClickUploadFile} className={styles.anotherFileLink}>
           Upload another file
         </button>
       </div>
-    </div>
+    </>
   );
 };
