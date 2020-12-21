@@ -1,12 +1,12 @@
 import React, { ChangeEvent, useState } from "react";
 import upload from "../images/upload.svg";
-import styles from "./DragDrop.module.css";
+import styles from "./DragDropUpload.module.css";
 
 interface DragDropProps {
   onFileSelect: (file: File | undefined) => void;
 }
 
-export const DragDrop = ({ onFileSelect }: DragDropProps) => {
+export const DragDropUpload = ({ onFileSelect }: DragDropProps) => {
   const [highlightDropZone, setHighlightDropZone] = useState<boolean>(false);
   const showFileChooser = () => document.getElementById("fileInput")!.click();
 

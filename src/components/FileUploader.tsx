@@ -1,5 +1,5 @@
-import react, { useState } from "react";
-import { DragDrop } from "./DragDrop";
+import React, { useState } from "react";
+import { DragDropUpload } from "./DragDropUpload";
 import { FilePreview } from "./FilePreview";
 import { FileUploadStatus } from "./FileUploadStatus";
 
@@ -36,7 +36,7 @@ export const FileUploader = () => {
           onClickUpload={onClickUpload}
         />
       )}
-      {!userSelectedFile && <DragDrop onFileSelect={onFileSelect} />}
+      {!userSelectedFile && <DragDropUpload onFileSelect={onFileSelect} />}
     </>
   );
 };
