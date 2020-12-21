@@ -4,11 +4,11 @@ import uploadOk from "../images/upload-ok.svg";
 
 interface FileUploadStatusProps {
   compressionRate: number;
-  onClickUploadFile: () => void;
+  onClickAnotherFileUpload: () => void;
 }
 export const FileUploadStatus = ({
   compressionRate, // CompressionRate to be sent to backend
-  onClickUploadFile,
+  onClickAnotherFileUpload,
 }: FileUploadStatusProps) => {
   const [uploaded, setUploaded] = useState<number>(0);
 
@@ -25,7 +25,7 @@ export const FileUploadStatus = ({
     <div className={styles.uploadStatusBg}>
       {uploaded < 100 && <Uploading uploaded={uploaded} />}
       {uploaded >= 100 && (
-        <UploadComplete onClickUploadFile={onClickUploadFile} />
+        <UploadComplete onClickAnotherFileUpload={onClickAnotherFileUpload} />
       )}
     </div>
   );
@@ -47,9 +47,9 @@ const Uploading = ({ uploaded }: UploadingProps) => {
 };
 
 interface UploadCompleteProps {
-  onClickUploadFile: () => void;
+  onClickAnotherFileUpload: () => void;
 }
-const UploadComplete = ({ onClickUploadFile }: UploadCompleteProps) => {
+const UploadComplete = ({ onClickAnotherFileUpload }: UploadCompleteProps) => {
   return (
     <>
       <p className={styles.uploadedContainer}>
@@ -63,7 +63,10 @@ const UploadComplete = ({ onClickUploadFile }: UploadCompleteProps) => {
         </span>
       </p>
       <div>
-        <button onClick={onClickUploadFile} className={styles.anotherFileLink}>
+        <button
+          onClick={onClickAnotherFileUpload}
+          className={styles.anotherFileLink}
+        >
           Upload another file
         </button>
       </div>
