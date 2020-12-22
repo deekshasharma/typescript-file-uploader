@@ -8,8 +8,8 @@ yarn start
 To run the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
-# Demo
-To view the demo, visit this link []()
+# Deployed Build
+Visit this link [http://ts-file-uploader.surge.sh/](http://ts-file-uploader.surge.sh/)
 
 # What is a FileUploader?
 `<FileUploader/>` is a reusable and customizable file upload and drop zone component API. The implementation for this component is written using `TypeScript` in `React`.
@@ -67,9 +67,3 @@ interface FileUploaderProps {
 - `onUpload()` function in the API if passed is not utilized currently. However, with a simple refactor to the
   `<FileUploader>` and `<FileUploadStatus>` component, we can override the default implementation. This will be particularly helpful when persisting the data into a DB.
 - This project does not include any third-party dependencies other than those that come with Create React App. Currently, it does not allow the user is not able to update color and styles. However, with styling libraries with CSS in JS support such as [Styled Components](https://styled-components.com/), we can extend the API to customize color and theme. Libraries such as Material Design [Material-UI](https://material-ui.com/) also allow custom theming and can also be used.
-
-# Deployment
-Note: This project is also deployed on Surge at URL [http://ts-file-uploader.surge.sh/](http://ts-file-uploader.surge.sh/)
-
-
-
