@@ -3,6 +3,7 @@ import { DragDropUpload } from "./DragDropUpload";
 import { FilePreview } from "./FilePreview";
 import { FileUploadStatus } from "./FileUploadStatus";
 import uploadImg from "../images/upload.svg";
+import uploadOk from "../images/upload-ok.svg";
 
 interface FileUploaderProps {
   dragDropText?: string;
@@ -16,6 +17,11 @@ interface FileUploaderProps {
   uploadLabel?: string;
   // onCancel?: () => void;
   // onUpload?: () => void;
+  uploadingLabel?: string;
+  uploadedLabel?: string;
+  uploadedIcon?: string;
+  showAnotherFileUploadLink?: boolean;
+  anotherFileUploadLabel?: string;
 }
 
 export const FileUploader = ({
@@ -28,6 +34,11 @@ export const FileUploader = ({
   compressionEndValue,
   cancelLabel,
   uploadLabel,
+  uploadingLabel,
+  uploadedLabel,
+  uploadedIcon,
+  showAnotherFileUploadLink,
+  anotherFileUploadLabel,
 }: FileUploaderProps) => {
   const [userSelectedFile, setUserSelectedFile] = useState<File | undefined>(
     undefined
@@ -52,6 +63,13 @@ export const FileUploader = ({
     <>
       {userSelectedFile && confirmFileUpload && (
         <FileUploadStatus
+          uploadingLabel={uploadingLabel || "UPLOADING"}
+          uploadedLabel={uploadedLabel || "File upload complete"}
+          uploadedIcon={uploadedIcon || uploadOk}
+          showAnotherFileUploadLink={showAnotherFileUploadLink || true}
+          anotherFileUploadLabel={
+            anotherFileUploadLabel || "Upload another file"
+          }
           onClickAnotherFileUpload={onClickAnotherFileUpload}
           compressionRate={compressionRate}
         />
