@@ -61,11 +61,12 @@ interface FileUploaderProps {
 - Currently, the uploader accepts only one file for the upload.
 - Although, any file could be uploaded, the file preview is available for images, videos and pdf files.
 - The file is not persisted in a database. The purpose of the uploading progress bar is to indicate that file is being uploaded.
+- The uploader preview supports files that have 16:9 and 1:1 ratio. 
 
 # Limitations
 - `onUpload()` function in the API if passed is not utilized currently. However, with a simple refactor to the
   `<FileUploader>` and `<FileUploadStatus>` component, we can override the default implementation. This will be particularly helpful when persisting the data into a DB.
-- This project does not include any third-party dependencies other than those that come with Create React App. Currently, it does not allow the user is not able to update color and styles. However, with styling libraries with CSS in JS support such as [Styled Components](https://styled-components.com/), we can extend the API to customize color and theme. Libraries such as Material Design [Material-UI](https://material-ui.com/) also allow custom theming and can also be used. 
+- This project does not include any third-party dependencies other than those that come with Create React App. Currently, it does not allow the user is not able to update color and styles. However, with styling libraries with CSS in JS support such as [Styled Components](https://styled-components.com/), we can extend the API to customize color and theme. Libraries such as Material Design [Material-UI](https://material-ui.com/) also allow custom theming and can also be used.
 
 # Deployment
 Note: This project is also deployed on Surge at URL [http://ts-file-uploader.surge.sh/](http://ts-file-uploader.surge.sh/)
