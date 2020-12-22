@@ -48,8 +48,8 @@ interface FileUploaderProps {
 |`compressionEndValue`|`string`|100| If passed, this will be the max value of the compression slider
 |`cancelLabel`|`string`| CANCEL | If passed, will override the default label for the cancel button.
 |`uploadLabel`|`string`| UPLOAD | If passed, will override the default label for the upload button.
-|`onCancel`|`fun`| Default behaviour will navigate the user back to the upload page | If passed, this function will be executed in addition to the default behaviour.
-|`onUpload`|`fun`| Default behaviour shows a progress bar for few seconds.| If passed, currently this function will be disregarded.
+|`onCancel`|`function`| Default behaviour will navigate the user back to the upload page | If passed, this function will be executed in addition to the default behaviour.
+|`onUpload`|`function`| Default behaviour shows a progress bar for few seconds.| If passed, currently this function will be disregarded.
 |`uploadingLabel`|`string`| Uploading | If passed, will override the default message to indicate the user that file is uploading.
 |`uploadedLabel`|`string`|File upload complete | If passed, will override the default message to inform user that upload is complete.
 |`uploadedIcon`|`string`|Default svg with a checkmark | If passed, will override the default svg to be rendered next to the uploaded text.
