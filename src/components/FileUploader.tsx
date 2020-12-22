@@ -15,8 +15,8 @@ interface FileUploaderProps {
   compressionEndValue?: string;
   cancelLabel?: string;
   uploadLabel?: string;
-  // onCancel?: () => void;
-  // onUpload?: () => void;
+  onCancel?: () => void;
+  onUpload?: () => Promise<{}>;
   uploadingLabel?: string;
   uploadedLabel?: string;
   uploadedIcon?: string;
@@ -34,6 +34,8 @@ export const FileUploader = ({
   compressionEndValue,
   cancelLabel,
   uploadLabel,
+  onCancel,
+  onUpload,
   uploadingLabel,
   uploadedLabel,
   uploadedIcon,
@@ -50,6 +52,7 @@ export const FileUploader = ({
   const onClickCancel = () => {
     setUserSelectedFile(undefined);
     setCompressionRate(0);
+    onCancel && onCancel();
   };
   const onClickUpload = () => setConfirmFileUpload(true);
   const onChangeCompressionRate = (rate: number) => setCompressionRate(rate);
