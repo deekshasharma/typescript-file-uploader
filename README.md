@@ -1,5 +1,4 @@
 # Steps to Run the Project
-
 To run this project locally, clone this project onto your machine and run the following commands in the project directory using command line.
 ```
 yarn install
