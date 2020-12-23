@@ -7,8 +7,8 @@ yarn start
 To run the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
-# Demo
-To view the demo, visit this link []()
+# Deployed Build
+Visit this link [http://ts-file-uploader.surge.sh/](http://ts-file-uploader.surge.sh/)
 
 # What is a FileUploader?
 `<FileUploader/>` is a reusable and customizable file upload and drop zone component API. The implementation for this component is written using `TypeScript` in `React`.
@@ -47,8 +47,8 @@ interface FileUploaderProps {
 |`compressionEndValue`|`string`|100| If passed, this will be the max value of the compression slider
 |`cancelLabel`|`string`| CANCEL | If passed, will override the default label for the cancel button.
 |`uploadLabel`|`string`| UPLOAD | If passed, will override the default label for the upload button.
-|`onCancel`|`fun`| Default behaviour will navigate the user back to the upload page | If passed, this function will be executed in addition to the default behaviour.
-|`onUpload`|`fun`| Default behaviour shows a progress bar for few seconds.| If passed, currently this function will be disregarded.
+|`onCancel`|`function`| Default behaviour will navigate the user back to the upload page | If passed, this function will be executed in addition to the default behaviour.
+|`onUpload`|`function`| Default behaviour shows a progress bar for few seconds.| If passed, currently this function will be disregarded.
 |`uploadingLabel`|`string`| Uploading | If passed, will override the default message to indicate the user that file is uploading.
 |`uploadedLabel`|`string`|File upload complete | If passed, will override the default message to inform user that upload is complete.
 |`uploadedIcon`|`string`|Default svg with a checkmark | If passed, will override the default svg to be rendered next to the uploaded text.
@@ -65,10 +65,4 @@ interface FileUploaderProps {
 # Limitations
 - `onUpload()` function in the API if passed is not utilized currently. However, with a simple refactor to the
   `<FileUploader>` and `<FileUploadStatus>` component, we can override the default implementation. This will be particularly helpful when persisting the data into a DB.
-- This project does not include any third-party dependencies other than those that come with Create React App. Currently, it does not allow the user is not able to update color and styles. However, with styling libraries with CSS in JS support such as [Styled Components](https://styled-components.com/), we can extend the API to customize color and theme. Libraries such as Material Design [Material-UI](https://material-ui.com/) also allow custom theming and can also be used.
-
-# Deployment
-Note: This project is also deployed on Surge at URL [http://ts-file-uploader.surge.sh/](http://ts-file-uploader.surge.sh/)
-
-
-
+- This project does not include any third-party dependencies other than those that come with Create React App. Currently, it does not allow the user to update color and styles. However, with styling libraries such as [Styled Components](https://styled-components.com/), we can extend the API to customize color and theme. Also, libraries such as [Material-UI](https://material-ui.com/) could also be leveraged for custom theming.
