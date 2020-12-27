@@ -15,10 +15,11 @@ app.post("/upload", (req, res) => {
     else {
       const file = req.files.upload;
       const fileName = file.name;
-      file.mv("./db/" + fileName);
-      res.status(200).send({
-        message: "File uploaded successfully",
-        data: { name: fileName, mimeType: file.mimetype },
+      file.mv("./db/" + fileName).then((result) => {
+        res.status(200).send({
+          message: "File uploaded successfully",
+          data: { name: fileName, mimeType: file.mimetype },
+        });
       });
     }
   } catch (err) {
